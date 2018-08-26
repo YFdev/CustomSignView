@@ -1,5 +1,6 @@
 # CustomSignView
 看到郭神公众号推送了一条签到的自定义view，一时兴起，决定自己做一个，效果图如下（没有动图，但是有动画效果的），做的比较粗糙，主要是巩固一下自定义view的知识。动态效果的实现没有用动画，主要原理是canvas.drawBitmap(Bitmap bitmap,Rect src,Rect dest,Paint paint)方法，即通过改变src实现绘制区域的改变，Canvas用法参考大神博客：https://blog.csdn.net/z_x_Qiang/article/details/76587328；
+
 public class CustomView extends View {
 
     private static final String TAG = "CustomView";
