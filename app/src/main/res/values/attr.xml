@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomView">
+        <attr name="item_count" format="integer"/>
+        <attr name="item_icon_sign_up" format="reference"/>
+        <attr name="item_icon_sign_down" format="reference"/>
+        <attr name="item_text" format="string"/>
+        <attr name="item_textSize" format="dimension"/>
+    </declare-styleable>
+</resources>

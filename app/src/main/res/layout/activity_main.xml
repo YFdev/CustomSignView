@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="com.elapse.custom_signview.MainActivity">
+
+    <com.elapse.custom_signview.CustomView
+        android:id="@+id/sign_up_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:item_icon_sign_up="@drawable/sign_up"
+        app:item_icon_sign_down="@drawable/sign_down"/>
+    <Button
+        android:id="@+id/sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="sign up"/>
+
+</LinearLayout>
