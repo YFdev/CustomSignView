@@ -1,6 +1,7 @@
 # CustomSignView
 看到郭神公众号推送了一条签到的自定义view，一时兴起，决定自己做一个，效果图如下（没有动图，但是有动画效果的），做的比较粗糙，主要是巩固一下自定义view的知识。动态效果的实现没有用动画，主要原理是canvas.drawBitmap(Bitmap bitmap,Rect src,Rect dest,Paint paint)方法，即通过改变src实现绘制区域的改变，Canvas用法参考大神博客：https://blog.csdn.net/z_x_Qiang/article/details/76587328；
 public class CustomView extends View {
+
     private static final String TAG = "CustomView";
     private Paint mPaint_signup,mPaint_signdown,mTextPaint,mSpecialItemPaint;
     //自定义总签到天数，即图标个数
@@ -40,7 +41,7 @@ public class CustomView extends View {
         itemCount = ta.getInt(R.styleable.CustomView_item_count,7);
         sign_upId = ta.getResourceId(R.styleable.CustomView_item_icon_sign_up,R.drawable.sign_up);
         sign_downId = ta.getResourceId(R.styleable.CustomView_item_icon_sign_down,R.drawable.sign_down);
-//        itemText = ta.getString(R.styleable.CustomView_item_text);
+        //itemText = ta.getString(R.styleable.CustomView_item_text);
         itemTextSize = ta.getDimension(R.styleable.CustomView_item_textSize,8);
         ta.recycle();
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -58,11 +59,12 @@ public class CustomView extends View {
         mPaint_signdown.setColor(Color.GRAY);
         mPaint_signdown.setStrokeWidth(2.0f);
         mPaint_signdown.setAntiAlias(true);
-//绘制右角标文字
+    //绘制右角标文字
         mTextPaint = new Paint();
         mTextPaint.setColor(Color.GRAY);
         mTextPaint.setTextSize(itemTextSize);
-//绘制特殊需求文字，如up
+    //绘制特殊需求文字，如up
+
         mSpecialItemPaint = new Paint();
         mSpecialItemPaint.setColor(Color.RED);
         mSpecialItemPaint.setTextSize(itemTextSize+4);
@@ -70,6 +72,7 @@ public class CustomView extends View {
         //test data
         itemText = new String[itemCount];
         //测试数据
+        
         for (int i=0;i<itemCount;i++){
             itemText[i] = "+"+i;
         }
@@ -85,7 +88,8 @@ public class CustomView extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-//        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    //   super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
         int width = MeasureSpec.getSize(widthMeasureSpec)-getPaddingLeft()-getPaddingRight();
         int widthMode = MeasureSpec.getMode(widthMeasureSpec);
         int height = MeasureSpec.getSize(heightMeasureSpec)-getPaddingBottom()-getPaddingTop();
@@ -199,7 +203,7 @@ public class CustomView extends View {
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
     }
-//对外提供一个签到的方法
+    //对外提供一个签到的方法
     public void signUp(){
         int num_of_days = prefs.getInt("num_of_day",0);
         SharedPreferences.Editor editor;
@@ -226,7 +230,7 @@ public class CustomView extends View {
             editor.apply();
         }
     }
-//对外提供设置右角标文字的方法
+    //对外提供设置右角标文字的方法
     public void setData(List<Object> list){
         if (list.size() != itemCount){
             throw new IllegalArgumentException("list size must be "+itemCount);
